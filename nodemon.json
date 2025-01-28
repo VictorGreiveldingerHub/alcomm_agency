@@ -1,0 +1,6 @@
+{
+  "watch": ["public/**/*"],
+  "ext": "js,json,html,css,glsl",
+  "exec": "npm run build && npm start",
+  "ignore": ["public/js/dist/*", "node_modules/**/*"]
+}

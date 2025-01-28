@@ -1,0 +1,547 @@
+/* Site Stylesheet
+  1. Styles globaux
+  2. Page accueil
+  3. Page studio
+  4. Page galerie
+  5. Page contact
+  6. Elements de décoration
+======================================== */
+
+/* 1. Styles globaux
+======================================== */
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(245, 235, 224);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0e1111;
+  display: grid;
+  grid-template-columns: 0.2fr repeat(10, 0.8fr) 0.2fr;
+  grid-template-rows: 0.2fr repeat(7, 0.8fr) 0.2fr;
+  z-index: 10;
+  cursor: none;
+}
+
+#cursor-circle {
+  position: absolute;
+  width: clamp(8px, 2vw, 12px);
+  height: clamp(8px, 2vw, 12px);
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: #3dbda2;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+header {
+  text-transform: uppercase;
+  font-weight: bold;
+  grid-area: 2 / 4 / 2 / 7;
+  display: flex;
+  align-items: start;
+  z-index: 10;
+}
+
+main {
+  grid-area: 3 / 2 / 9 / 12;
+  font-weight: bold;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+ul {
+  display: flex;
+}
+
+main a span {
+  font-size: 2.986rem;
+}
+
+#social_media ul {
+  flex-direction: column;
+  align-items: end;
+  gap: 5px;
+}
+
+#loading-bar {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+  transform: scaleX(0);
+}
+/* 2. Header et navigation
+======================================== */
+
+#logo {
+  z-index: 10;
+  position: absolute;
+  top: -40px;
+  left: -4px;
+}
+
+#logo img {
+  width: 200px;
+  height: auto;
+}
+
+#social_media {
+  grid-area: 3 / 11 / 2 / 11;
+
+  display: flex;
+  align-items: start;
+  justify-content: end;
+  z-index: 10;
+}
+
+#social_media_item {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.social_media_link {
+  font-size: 1.1rem;
+}
+
+.main_navigation_link {
+  text-decoration: none;
+  color: #ffecec;
+  position: relative;
+  display: inline-block;
+}
+
+.main_navigation_link.active {
+  text-decoration: underline;
+}
+
+.main_navigation_list_items {
+  gap: 3rem;
+}
+
+/* 3. Hero 
+======================================== */
+
+.hero {
+  grid-area: 1 / 2 / 3 / 10;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  flex: 1;
+
+  position: relative;
+  height: 100%;
+}
+
+/* 4. Footer
+======================================== */
+
+.right-footer {
+  grid-area: 8 / 12 / 9 / 10;
+
+  display: flex;
+  align-items: end;
+  justify-content: end;
+
+  font-weight: 300;
+  font-size: 9px;
+
+  z-index: 10;
+}
+
+.left-footer {
+  grid-area: 8 / 2 / 9 / 3;
+
+  z-index: 10;
+}
+
+/* 3. Page studio
+======================================== */
+
+.studio-container {
+  grid-area: 2 / 3 / 6 / 10;
+
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  /* display: flex;
+  flex-direction: column;
+  gap: 15px; */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.studio-container::-webkit-scrollbar {
+  display: none;
+}
+
+.studio-container .container {
+  scroll-snap-align: start;
+
+  height: 100%;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.studio-navigation {
+  grid-area: 1 / 1 / 6 / 3;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.studio-navigation a {
+  display: flex;
+  gap: 5px;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(73, 73, 73);
+}
+
+.studio-navigation a.active {
+  color: #3dbda2;
+}
+
+.title {
+  grid-area: 1 / 3/ 2 / 10;
+
+  font-size: clamp(22px, 7vw, 55px);
+  font-weight: bold;
+  text-transform: uppercase;
+
+  z-index: 10;
+}
+
+.studio-presentation {
+  color: #ffecec;
+  line-height: 2.5rem;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.studio-text {
+  color: rgb(158, 158, 158);
+  line-height: 1.5rem;
+  font-size: 26px;
+  font-weight: 100;
+}
+
+#prestations {
+  display: flex;
+  flex-direction: column;
+}
+
+.prestation-item {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.prestation-item:hover a {
+  color: #3dbda2;
+}
+
+.prestation-item_image-wrapper {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.prestation-item_image {
+  width: 300px;
+  height: 300px;
+}
+
+.prestation-link {
+  flex: 2;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: clamp(10px, 4.2vw, 42px);
+  color: white;
+
+  cursor: none;
+}
+
+/* Contact  */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact .contact-links {
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.reseaux-container {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  align-items: end;
+}
+
+.studio-mail {
+  font-size: clamp(16px, 6vw, 36px);
+}
+
+#contact {
+  font-size: 36px;
+}
+
+.contact-btn {
+  cursor: unset;
+  margin-top: 10px;
+  padding: 1em;
+  width: 200px; /* Définissez une largeur de base */
+  background-color: #3dbda2;
+  color: #ffecec;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden; /* Empêche le débordement */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Ajout de transition pour la largeur */
+}
+
+.contact-btn:hover {
+  background-color: #34a28f; /* Change la couleur au survol */
+  width: 240px; /* Augmente la largeur de 20 % */
+  font-weight: bold;
+}
+
+.contact-btn::after {
+  content: ""; /* Pas de texte direct */
+  position: absolute;
+  top: 50%; /* Centrer verticalement */
+  right: -1rem; /* Position initiale hors du bouton */
+  transform: translateY(-50%); /* Centrage vertical précis */
+  width: 16px; /* Largeur de la flèche */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: currentColor; /* Utilise la couleur du texte */
+  transition: all 0.3s ease; /* Animation fluide */
+
+  /* Ajout du triangle pour la pointe de la flèche */
+  box-shadow: 8px 0 currentColor, 12px -3px 0 currentColor,
+    12px 3px 0 currentColor; /* Crée un effet "->" */
+}
+
+.contact-btn:hover::after {
+  right: 0.5rem; /* Flèche se déplace vers l'intérieur */
+  opacity: 1; /* Rend la flèche visible */
+}
+
+.reseau-container {
+  display: flex;
+  gap: 15px;
+}
+
+/* 3. Page galerie
+======================================== */
+
+.galerie {
+  grid-area: 2 / 2 / 6 / 10;
+  display: flex;
+  gap: 3rem;
+}
+
+.galerie-item {
+  flex: 1;
+}
+
+.item-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.item-link img {
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.rolling-text {
+  display: inline-block;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: 100;
+  text-align: center;
+  color: #ffecec;
+}
+
+.rolling-text:hover .letter,
+.rolling-text.play .letter {
+  transform: translateY(-100%);
+}
+
+.rolling-text .block:last-child {
+  color: #3dbda2;
+  margin-bottom: -2em;
+}
+
+.rolling-text .letter {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  font-size: 32px;
+}
+
+.letter:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.letter:nth-child(2) {
+  transition-delay: 0.015s;
+}
+
+.letter:nth-child(3) {
+  transition-delay: 0.03s;
+}
+
+.letter:nth-child(4) {
+  transition-delay: 0.045s;
+}
+
+.letter:nth-child(5) {
+  transition-delay: 0.06s;
+}
+
+.letter:nth-child(6) {
+  transition-delay: 0.065s;
+}
+
+.letter:nth-child(7) {
+  transition-delay: 0.08s;
+}
+
+.letter:nth-child(8) {
+  transition-delay: 0.095s;
+}
+
+.letter:nth-child(9) {
+  transition-delay: 0.11s;
+}
+
+.letter:nth-child(10) {
+  transition-delay: 0.125s;
+}
+
+.galerie-item img {
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.nombre-img {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  color: #ffecec;
+  font-size: clamp(10px, 3vw, 16px);
+  text-decoration: none;
+}
+
+/* 3. Page galerie
+======================================== */
+.subtitle {
+  grid-area: 2/ 1/ 2/ 5;
+  font-size: clamp(12px, 3vw, 24px);
+  align-content: center;
+}
+
+.galerie-return {
+  grid-area: 1 / 1 / 2 / 1;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  background-color: transparent;
+}
+
+.submenu {
+  grid-area: 3 / 1 / 3 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.photos {
+  grid-area: 4 / 2 / 7 / 7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.photos img {
+  width: 75px;
+  height: 100px;
+}
+
+.main-photo-container {
+  grid-area: 1 / 7 / 7 / 11;
+}
+
+.main-photo-container img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 3. Page contact
+======================================== */
+.contactpage {
+  grid-area: 2 / 3 / 7 / 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftside {
+  flex: 1;
+}
+
+.rightside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* gap: 3px; */
+}
+
+#cGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
